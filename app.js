@@ -17,14 +17,24 @@ const app = express();
 // });
 
 
+// const connection = mysql.createConnection({
+//     host: 'c237-asyraf-mysql.mysql.database.azure.com',
+//     user: 'c237_011',
+//     password: 'c237011@2026!',
+//     database: 'c237_011_team4_lesson20'
+//   });
+
 const connection = mysql.createConnection({
     host: 'c237-asyraf-mysql.mysql.database.azure.com',
     user: 'c237_011',
-    password: 'c237011@2026',
-    database: 'c237_011_team4_lesson20'
-  });
+    password: 'c237011@2026!',
+    database: 'c237_011_team4_lesson20',
+    ssl: {
+        rejectUnauthorized: false
+    }
+});
 
-db.connect((err) => {
+connection.connect((err) => {
     if (err) {
         throw err;
     }
